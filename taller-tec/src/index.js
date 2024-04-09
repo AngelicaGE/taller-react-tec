@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 
 import {Provider} from 'react-redux';
 import store from './Store/store';
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 {/* <script async
     src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
 </script> */}
