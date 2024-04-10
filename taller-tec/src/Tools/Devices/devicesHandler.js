@@ -1,7 +1,8 @@
 import store from "../../Store/store";
 import { 
     addDevice,
-    delDevice
+    delDevice,
+    setFilterDevice
 } from "../../Store/Actions/Devices/devicesActions";
 
 export const addDeviceHnd = (device) => {
@@ -12,4 +13,8 @@ export const addDeviceHnd = (device) => {
 
 export const delDeviceHnd = (deviceId) => {
     store.dispatch(delDevice(deviceId));
+}
+
+export const setFilterDeviceHnd = (filter) => {
+    store.dispatch(setFilterDevice(filter));
 }

@@ -1,4 +1,8 @@
-import { DEVICES_ADD, DEVICES_DEL } from ".";
+import { 
+    DEVICES_ADD, 
+    DEVICES_DEL,
+    DEVICE_FILTER
+} from ".";
 
 export const addDevice = (device, deviceId) => {
     return {
@@ -12,5 +16,12 @@ export const delDevice = (deviceId) => {
     return {
         type: DEVICES_DEL,
         deviceId
+    }
+}
+
+export const setFilterDevice = (filter) => {
+    return {
+        type: DEVICE_FILTER,
+        filter
     }
 }

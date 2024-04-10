@@ -1,6 +1,7 @@
 import {
     DEVICES_ADD,
-    DEVICES_DEL
+    DEVICES_DEL,
+    DEVICE_FILTER
 } from '../../Actions/Devices/index.js';
 
 const initState = {
@@ -9,7 +10,8 @@ const initState = {
         {id: 2, model: "iphone 15", color: "blue"},
         {id: 3, model: "iphone 10", color: "red"},
         {id: 4, model: "samsung galaxy", color: "pink"}
-    ]
+    ],
+    filter: ''
 };
 
 const devicesReducer = (state = initState, action) => {
@@ -25,6 +27,12 @@ const devicesReducer = (state = initState, action) => {
             return {
                 ...state,
                 list: state.list.filter(device => device.id !== action.deviceId)
+            }
+        case DEVICE_FILTER:
+            console.log("DEVICE_FILTER",  action.filter)
+            return {
+                ...state,
+                filter: action.filter
             }
         default:
             return state;
