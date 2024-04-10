@@ -7,7 +7,7 @@ const FAB = () => {
         bottom: '10px',
         right: '10px'
     }}>
-        <button type="button" class="btn btn-primary">Add</button>
+        <button type="button" className="btn btn-primary">Add</button>
     </div>
   )
 }
