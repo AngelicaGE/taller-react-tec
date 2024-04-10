@@ -4,7 +4,12 @@ import {
 } from '../../Actions/Devices/index.js';
 
 const initState = {
-    list: []
+    list: [
+        {id: 1, model: "iphone 13", color: "pink"},
+        {id: 2, model: "iphone 15", color: "blue"},
+        {id: 3, model: "iphone 10", color: "red"},
+        {id: 4, model: "samsung galaxy", color: "pink"}
+    ]
 };
 
 const devicesReducer = (state = initState, action) => {

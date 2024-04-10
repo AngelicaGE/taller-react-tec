@@ -1,28 +1,44 @@
 import React from "react";
+import {connect} from 'react-redux'
+
 import ListGroup from 'react-bootstrap/ListGroup';
 import Container from 'react-bootstrap/Container'
+import { delDeviceHnd } from "../../Tools/Devices/devicesHandler";
 
-const myDevices = [
-    {id: 1, model: "iphone 13", color: "pink"},
-    {id: 2, model: "iphone 15", color: "blue"},
-    {id: 3, model: "iphone 10", color: "red"},
-    {id: 4, model: "samsung galaxy", color: "pink"}
-]
+const DevicesContainer = (props) => {
+    let {list} = props
 
-const DevicesContainer = () => {
-  return (
-    <Container className="DevicesContainer">
-      <ListGroup as="ol">
-        {
-            myDevices.map(device => (
-                <ListGroup.Item as="li" key={device.id}>
-                    {device.model}: {device.color}
-                </ListGroup.Item>
-            ))
-        }
-      </ListGroup>
-    </Container>
-  );
+    const onDelClick = (deviceId) => {
+        console.log('onDelClick', deviceId)
+        delDeviceHnd(deviceId)
+    }
+
+    return (
+        <Container className="DevicesContainer">
+        <ListGroup as="ol">
+            {
+                list.map(device => (
+                    <ListGroup.Item as="li" key={device.id}>
+                        <div className="d-flex justify-content-between align-items-center">
+                            <p className="m-0">{device.model}: {device.color}</p>
+                            <button 
+                                type="button" 
+                                className="btn btn-danger"
+                                onClick={() => onDelClick(device.id)}
+                            > 
+                                Delete
+                            </button>
+                        </div>
+                    </ListGroup.Item>
+                ))
+            }
+        </ListGroup>
+        </Container>
+    );
 };
 
-export default DevicesContainer;
+const mapStateToProps = ({ devices }) => ({
+    list: devices.list
+})
+  
+export default connect(mapStateToProps)(DevicesContainer);

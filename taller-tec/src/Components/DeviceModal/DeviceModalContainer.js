@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import Modal from "react-bootstrap/Modal";
+import { addDeviceHnd } from "../../Tools/Devices/devicesHandler";
 
 const DeviceModalContainer = ({ isModalOpened, setIsModalOpened }) => {
   const formRef = useRef(null)
@@ -8,6 +9,7 @@ const DeviceModalContainer = ({ isModalOpened, setIsModalOpened }) => {
     e.preventDefault();
     let model = formRef.current[0].value;
     let color = formRef.current[1].value;
+    addDeviceHnd({model, color})
     alert('device ' + model + ' added ')
     setIsModalOpened(false)
   }
